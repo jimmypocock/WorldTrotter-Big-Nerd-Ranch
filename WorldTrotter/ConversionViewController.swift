@@ -74,9 +74,28 @@ class ConversionViewController: UIViewController, UITextFieldDelegate {
         }
     }
 
+    // Get darker depending on the time of day.
+    func updateBackground() {
+        let date = NSDate()
+        let calendar = NSCalendar.current
+        let hour = CGFloat(calendar.component(.hour, from: date as Date))
+        let multiplier = hour/CGFloat(24) * 100
+
+        let newColor = UIColor.white.darken(by: multiplier)
+        self.view.backgroundColor = newColor
+
+        print("Background Color: \(newColor)")
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        print("ConversionViewController loaded its view.")
+
         updateCelsiusLabel()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        updateBackground()
     }
 }

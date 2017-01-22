@@ -14,6 +14,11 @@
 		5442DB9A1E346798008DC800 /* WorldTrotterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5442DB991E346798008DC800 /* WorldTrotterTests.swift */; };
 		5442DBA51E346798008DC800 /* WorldTrotterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5442DBA41E346798008DC800 /* WorldTrotterUITests.swift */; };
 		5442DBB31E3474A0008DC800 /* ConversionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5442DBB21E3474A0008DC800 /* ConversionViewController.swift */; };
+		548325661E3523360003958C /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 548325651E3523360003958C /* MapKit.framework */; };
+		548325681E35273E0003958C /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548325671E35273E0003958C /* MapViewController.swift */; };
+		5483256A1E352E6D0003958C /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548325691E352E6D0003958C /* UIColorExtension.swift */; };
+		5483256B1E35348D0003958C /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548325691E352E6D0003958C /* UIColorExtension.swift */; };
+		5483256C1E35348E0003958C /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548325691E352E6D0003958C /* UIColorExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +52,9 @@
 		5442DBA41E346798008DC800 /* WorldTrotterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldTrotterUITests.swift; sourceTree = "<group>"; };
 		5442DBA61E346798008DC800 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5442DBB21E3474A0008DC800 /* ConversionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversionViewController.swift; sourceTree = "<group>"; };
+		548325651E3523360003958C /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		548325671E35273E0003958C /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		548325691E352E6D0003958C /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				548325661E3523360003958C /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +90,7 @@
 				5442DB981E346798008DC800 /* WorldTrotterTests */,
 				5442DBA31E346798008DC800 /* WorldTrotterUITests */,
 				5442DB821E346798008DC800 /* Products */,
+				548325641E3523360003958C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,7 +109,9 @@
 			children = (
 				5442DB841E346798008DC800 /* AppDelegate.swift */,
 				5442DB881E346798008DC800 /* Main.storyboard */,
+				548325671E35273E0003958C /* MapViewController.swift */,
 				5442DBB21E3474A0008DC800 /* ConversionViewController.swift */,
+				548325691E352E6D0003958C /* UIColorExtension.swift */,
 				5442DB8B1E346798008DC800 /* Assets.xcassets */,
 				5442DB8D1E346798008DC800 /* LaunchScreen.storyboard */,
 				5442DB901E346798008DC800 /* Info.plist */,
@@ -123,6 +135,14 @@
 				5442DBA61E346798008DC800 /* Info.plist */,
 			);
 			path = WorldTrotterUITests;
+			sourceTree = "<group>";
+		};
+		548325641E3523360003958C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				548325651E3523360003958C /* MapKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -260,7 +280,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				5442DBB31E3474A0008DC800 /* ConversionViewController.swift in Sources */,
+				548325681E35273E0003958C /* MapViewController.swift in Sources */,
 				5442DB851E346798008DC800 /* AppDelegate.swift in Sources */,
+				5483256A1E352E6D0003958C /* UIColorExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,6 +291,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5442DB9A1E346798008DC800 /* WorldTrotterTests.swift in Sources */,
+				5483256B1E35348D0003958C /* UIColorExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -277,6 +300,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5442DBA51E346798008DC800 /* WorldTrotterUITests.swift in Sources */,
+				5483256C1E35348E0003958C /* UIColorExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -505,6 +529,7 @@
 				5442DBAB1E346798008DC800 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5442DBAC1E346798008DC800 /* Build configuration list for PBXNativeTarget "WorldTrotterTests" */ = {
 			isa = XCConfigurationList;
@@ -513,6 +538,7 @@
 				5442DBAE1E346798008DC800 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5442DBAF1E346798008DC800 /* Build configuration list for PBXNativeTarget "WorldTrotterUITests" */ = {
 			isa = XCConfigurationList;
@@ -521,6 +547,7 @@
 				5442DBB11E346798008DC800 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
