@@ -17,6 +17,7 @@ class ConversionViewController: UIViewController, UITextFieldDelegate {
         nf.maximumFractionDigits = 1
         return nf
     }()
+    let decimalDigits = CharacterSet.decimalDigits
 
     @IBOutlet var celsiusLabel: UILabel!
     var fahrenheitValue: Measurement<UnitTemperature>? {
@@ -49,17 +50,26 @@ class ConversionViewController: UIViewController, UITextFieldDelegate {
         }
     }
 
-    func textField(_ textField: UITextField,
-                   shouldChangeCharactersIn range: NSRange,
-                   replacementString string: String) -> Bool {
+    func isDecimalDigit(string: String) -> Bool {
+        for uni in (string.unicodeScalars) {
+            if !decimalDigits.contains(uni) {
+                return false
+            }
+        }
+        return true
+    }
+
+    func textField(_ textField: UITextField,shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
 
         let existingTextHasDecimalSeparator = textField.text?.range(of: ".")
-        let replacementTextHasDecimalSeparator = textField.text?.range(of: ".")
+        let replacementTextHasDecimalSeparator = string.range(of: ".")
 
-        if existingTextHasDecimalSeparator != nil,
-            replacementTextHasDecimalSeparator != nil {
+        if existingTextHasDecimalSeparator != nil && replacementTextHasDecimalSeparator != nil {
             return false
         } else {
+            if !isDecimalDigit(string: string) && string != "." {
+                return false
+            }
             return true
         }
     }
