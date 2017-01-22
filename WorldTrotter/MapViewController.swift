@@ -5,13 +5,27 @@
 //  Created by Jimmy Pocock on 1/22/17.
 //  Copyright © 2017 Jimmy Pocock. All rights reserved.
 //
+// Great resource for MapKit instruction
+// https://www.raywenderlich.com/90971/introduction-mapkit-swift-tutorial
+//
+// Broken out map view controller
+// https://github.com/lotfyahmed/MyLocation/blob/master/MyLocation/ViewController.swift
+//
+// Map example in Swift 8
+// http://www.techotopia.com/index.php/A_Swift_Example_iOS_8_Location_Application
+// http://www.techotopia.com/index.php/Working_with_Maps_on_iOS_8_with_Swift,_MapKit_and_the_MKMapView_Class
+//
+// Big Nerd Ranch Forum for Silver Challenge
+// https://forums.bignerdranch.com/t/silver-challenge-users-location/8138/6
 
 import UIKit
 import MapKit
+import CoreLocation
 
-class MapViewController: UIViewController {
+class MapViewController: UIViewController, CLLocationManagerDelegate {
 
     var mapView: MKMapView!
+    var locationManager = CLLocationManager()
 
     func mapTypeChanged(_ segControl: UISegmentedControl) {
         switch segControl.selectedSegmentIndex {
@@ -23,6 +37,36 @@ class MapViewController: UIViewController {
             mapView.mapType = .satellite
         default:
             break
+        }
+    }
+
+    let regionDelta: CLLocationDistance = 0.02
+    func centerMapOnLocation(location: CLLocation) {
+
+        let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+        let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: regionDelta, longitudeDelta: regionDelta))
+
+        mapView.setRegion(region, animated: true)
+    }
+
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+
+        let currentLocation: CLLocation = locations[locations.count - 1]
+        
+        print("Current Location: \(currentLocation)")
+        centerMapOnLocation(location: currentLocation)
+    }
+
+    func checkLocationAuthorizationStatus() {
+        if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
+            mapView.showsUserLocation = true
+
+            locationManager.delegate = self
+            locationManager.distanceFilter = kCLDistanceFilterNone
+            locationManager.desiredAccuracy = kCLLocationAccuracyBest
+            locationManager.startUpdatingLocation()
+        } else {
+            locationManager.requestWhenInUseAuthorization()
         }
     }
 
@@ -58,5 +102,7 @@ class MapViewController: UIViewController {
         super.viewDidLoad()
 
         print("MapViewController loaded its view.")
+
+        checkLocationAuthorizationStatus()
     }
 }
