@@ -17,6 +17,9 @@
 //
 // Big Nerd Ranch Forum for Silver Challenge
 // https://forums.bignerdranch.com/t/silver-challenge-users-location/8138/6
+//
+// Simple Map View
+// https://iosdevcenters.blogspot.com/2016/09/simple-mapview-tutorial-in-swift-mapkit.html
 
 import UIKit
 import MapKit
@@ -54,7 +57,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         let currentLocation: CLLocation = locations[locations.count - 1]
         
         print("Current Location: \(currentLocation)")
-        centerMapOnLocation(location: currentLocation)
+//        centerMapOnLocation(location: currentLocation)
     }
 
     func checkLocationAuthorizationStatus() {
@@ -104,5 +107,19 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         print("MapViewController loaded its view.")
 
         checkLocationAuthorizationStatus()
+
+        // 2)
+        let location = CLLocationCoordinate2D(latitude: 23.0225,longitude: 72.5714)
+        // 3)
+        let span = MKCoordinateSpanMake(1, 1)
+        let region = MKCoordinateRegion(center: location, span: span)
+        mapView.setRegion(region, animated: true)
+
+        // 4)
+        let annotation = MKPointAnnotation()
+        annotation.coordinate = location
+        annotation.title = "iOSDevCenter-Kirit Modi"
+        annotation.subtitle = "Ahmedabad"
+        mapView.addAnnotation(annotation)
     }
 }
