@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -101,10 +102,79 @@
             </objects>
             <point key="canvasLocation" x="1788" y="137"/>
         </scene>
-        <!--Map-->
+        <!--WebViewController-->
+        <scene sceneID="jSh-21-WDg">
+            <objects>
+                <viewController title="WebViewController" id="eB6-d6-V7w" customClass="WebViewController" customModule="WorldTrotter" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="4H0-cc-20b"/>
+                        <viewControllerLayoutGuide type="bottom" id="dAQ-NA-f6o"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="nu0-68-r5v">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bBg-ud-5Tp">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </webView>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ouW-vD-MvE">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <items>
+                                    <navigationItem title="Title" id="SVx-ln-QwR">
+                                        <leftBarButtonItems>
+                                            <barButtonItem title="&lt;" id="VF3-aF-K2I">
+                                                <connections>
+                                                    <action selector="backAction:" destination="eB6-d6-V7w" id="4wU-UU-bBd"/>
+                                                </connections>
+                                            </barButtonItem>
+                                            <barButtonItem title="&gt;" id="xbk-Yv-gl8">
+                                                <connections>
+                                                    <action selector="forwardAction:" destination="eB6-d6-V7w" id="3Su-co-kCn"/>
+                                                </connections>
+                                            </barButtonItem>
+                                        </leftBarButtonItems>
+                                        <rightBarButtonItems>
+                                            <barButtonItem systemItem="refresh" id="65p-FY-eIK">
+                                                <connections>
+                                                    <action selector="refreshAction:" destination="eB6-d6-V7w" id="XyC-UT-Mep"/>
+                                                </connections>
+                                            </barButtonItem>
+                                            <barButtonItem systemItem="stop" id="deg-7U-c3E">
+                                                <connections>
+                                                    <action selector="stopAction:" destination="eB6-d6-V7w" id="wmd-it-dWw"/>
+                                                </connections>
+                                            </barButtonItem>
+                                        </rightBarButtonItems>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="bBg-ud-5Tp" secondAttribute="trailing" id="IO1-3n-90b"/>
+                            <constraint firstItem="ouW-vD-MvE" firstAttribute="trailing" secondItem="bBg-ud-5Tp" secondAttribute="trailing" id="OMf-nD-ZQf"/>
+                            <constraint firstAttribute="bottom" secondItem="bBg-ud-5Tp" secondAttribute="bottom" id="RXG-ep-iPN"/>
+                            <constraint firstItem="ouW-vD-MvE" firstAttribute="leading" secondItem="bBg-ud-5Tp" secondAttribute="leading" id="qGq-5n-g9w"/>
+                            <constraint firstItem="bBg-ud-5Tp" firstAttribute="leading" secondItem="nu0-68-r5v" secondAttribute="leading" id="tDj-9Z-aT9"/>
+                            <constraint firstItem="ouW-vD-MvE" firstAttribute="top" secondItem="4H0-cc-20b" secondAttribute="bottom" id="xOe-Jv-S42"/>
+                            <constraint firstItem="bBg-ud-5Tp" firstAttribute="top" secondItem="ouW-vD-MvE" secondAttribute="bottom" id="zYI-cY-aJm"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Web" id="HsY-Ab-sU0"/>
+                    <connections>
+                        <outlet property="navigationBar" destination="ouW-vD-MvE" id="Q9l-21-d0k"/>
+                        <outlet property="webView" destination="bBg-ud-5Tp" id="nQw-Ej-zxD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0Sl-md-RvW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="980" y="-558.17091454272872"/>
+        </scene>
+        <!--Tab Bar-->
         <scene sceneID="tCO-T7-NhY">
             <objects>
-                <tabBarController title="Map" automaticallyAdjustsScrollViewInsets="NO" id="EuZ-Ua-98s" sceneMemberID="viewController">
+                <tabBarController title="Tab Bar" automaticallyAdjustsScrollViewInsets="NO" id="EuZ-Ua-98s" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="aP4-HV-DVU">
                         <autoresizingMask key="autoresizingMask"/>
@@ -113,6 +183,7 @@
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="4sd-kb-FDM"/>
                         <segue destination="MGE-lm-Q6e" kind="relationship" relationship="viewControllers" id="lHQ-4G-T86"/>
+                        <segue destination="eB6-d6-V7w" kind="relationship" relationship="viewControllers" id="ri0-wB-OM6"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gvg-VN-4hk" userLabel="First Responder" sceneMemberID="firstResponder"/>

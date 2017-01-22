@@ -19,6 +19,8 @@
 		5483256A1E352E6D0003958C /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548325691E352E6D0003958C /* UIColorExtension.swift */; };
 		5483256B1E35348D0003958C /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548325691E352E6D0003958C /* UIColorExtension.swift */; };
 		5483256C1E35348E0003958C /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548325691E352E6D0003958C /* UIColorExtension.swift */; };
+		5483256E1E353E810003958C /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5483256D1E353E810003958C /* WebViewController.swift */; };
+		548325701E353F0C0003958C /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5483256F1E353F0C0003958C /* WebKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +57,8 @@
 		548325651E3523360003958C /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		548325671E35273E0003958C /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		548325691E352E6D0003958C /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		5483256D1E353E810003958C /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		5483256F1E353F0C0003958C /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				548325701E353F0C0003958C /* WebKit.framework in Frameworks */,
 				548325661E3523360003958C /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -109,6 +114,7 @@
 			children = (
 				5442DB841E346798008DC800 /* AppDelegate.swift */,
 				5442DB881E346798008DC800 /* Main.storyboard */,
+				5483256D1E353E810003958C /* WebViewController.swift */,
 				548325671E35273E0003958C /* MapViewController.swift */,
 				5442DBB21E3474A0008DC800 /* ConversionViewController.swift */,
 				548325691E352E6D0003958C /* UIColorExtension.swift */,
@@ -140,6 +146,7 @@
 		548325641E3523360003958C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5483256F1E353F0C0003958C /* WebKit.framework */,
 				548325651E3523360003958C /* MapKit.framework */,
 			);
 			name = Frameworks;
@@ -282,6 +289,7 @@
 				5442DBB31E3474A0008DC800 /* ConversionViewController.swift in Sources */,
 				548325681E35273E0003958C /* MapViewController.swift in Sources */,
 				5442DB851E346798008DC800 /* AppDelegate.swift in Sources */,
+				5483256E1E353E810003958C /* WebViewController.swift in Sources */,
 				5483256A1E352E6D0003958C /* UIColorExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
